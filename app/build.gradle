@@ -12,10 +12,26 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    
     buildTypes {
+        def STRING = "String"
+        def MARVEL_API_URL = "MARVEL_PUBLIC_API_URL"
+        def MARVEL_PUBLIC_API_KEY = "MARVEL_PUBLIC_API_KEY"
+        def MARVEL_PRIVATE_API_KEY = "MARVEL_PRIVATE_API_KEY"
+
+        debug {
+            debuggable true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        all {
+            buildConfigField STRING, MARVEL_API_URL, "\"http://gateway.marvel.com/\""
+            buildConfigField STRING, MARVEL_PUBLIC_API_KEY, "\"6a7ed890b4b941a925202a5630d5b162\""
+            buildConfigField STRING, MARVEL_PRIVATE_API_KEY, "\"0f1d0fdf46a0bf32f962b0b9997233c0395cdf8e\""
         }
     }
 }
