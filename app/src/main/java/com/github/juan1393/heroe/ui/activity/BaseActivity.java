@@ -1,5 +1,6 @@
 package com.github.juan1393.heroe.ui.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import com.github.juan1393.heroe.presentation.BasePresenter;
 import com.github.juan1393.heroe.ui.View;
 
 import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Juan Gómez on 11/2/17.
@@ -55,5 +57,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View {
     public void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

@@ -19,16 +19,6 @@ import java.util.List;
 
 public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
 
-    /*String name;
-    private String description;
-    private int pageCount;
-    private Date releaseDate;
-    private float printPrice;
-    private String thumbnailUrl;
-    private List<String> imagesUrl;
-    private List<Creator> creators;
-    private List<Character> characters;*/
-
     private HttpCreatorsToCreatorListMapper httpCreatorsToCreatorListMapper;
     private HttpCharactersToCharacterListMapper httpCharactersToCharacterListMapper;
 
@@ -81,10 +71,7 @@ public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
     }
 
     private int getPageCount(HttpResult input) throws InfoNotAvailableException {
-        if(input.getPageCount() > 0) {
-            return input.getPageCount();
-        }
-        throw new InfoNotAvailableException();
+        return input.getPageCount();
     }
 
     private Date getReleaseDate(HttpResult input) throws InfoNotAvailableException {

@@ -19,14 +19,17 @@ public class Heroe extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+
+        setupInjection();
+    }
+
+    private void setupInjection() {
         appComponent = DaggerAppComponent
                 .builder()
                 .appModule(new AppModule(this))
                 .build();
-
         appComponent.inject(this);
     }
-
 
     public AppComponent getAppComponent() {
         return appComponent;

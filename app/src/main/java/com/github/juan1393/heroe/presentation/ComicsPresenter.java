@@ -5,6 +5,7 @@ import com.github.juan1393.heroe.domain.request.GetCharacterComicsRequest;
 import com.github.juan1393.heroe.domain.response.GetCharacterComicsResponse;
 import com.github.juan1393.heroe.domain.useCase.GetCharacterComicsUseCase;
 import com.github.juan1393.heroe.ui.activity.ComicsActivity;
+import com.github.juan1393.heroe.ui.adapter.displayModel.ComicsDisplayModel;
 
 import java.util.List;
 
@@ -39,16 +40,19 @@ public class ComicsPresenter extends BasePresenter<ComicsActivity> implements Ge
 
     @Override
     public void onCharacterComicsRetrieved(List<Comic> comics) {
-
+        if (isViewEnabled()) {
+            ComicsDisplayModel comicsDisplayModel = new ComicsDisplayModel(comics);
+            view.setDataInComicList(comicsDisplayModel);
+        }
     }
 
     @Override
     public void onCharacterComicsNotFound() {
-
+        //TODO: Show toast
     }
 
     @Override
     public void onNetworkConnectionError() {
-
+        //TODO: Show toast
     }
 }
