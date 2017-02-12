@@ -1,3 +1,5 @@
+![Heroe image](/art/logo_marvel.jpg?raw=true)
+
 Heroe
 --------------
 Visualize information about comics of your favorite Marvel character. By default,
