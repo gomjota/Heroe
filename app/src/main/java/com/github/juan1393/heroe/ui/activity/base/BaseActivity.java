@@ -40,7 +40,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View {
         presenter.setNavigator(navigator);
         presenter.setView(this);
         presenter.onCreate();
-        presenter.onViewEnabled();
     }
 
     private void initView(int layoutReference) {

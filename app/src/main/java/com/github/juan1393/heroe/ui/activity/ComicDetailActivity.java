@@ -2,6 +2,7 @@ package com.github.juan1393.heroe.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,8 +11,8 @@ import com.github.juan1393.heroe.R;
 import com.github.juan1393.heroe.app.di.component.AppComponent;
 import com.github.juan1393.heroe.app.di.component.DaggerComicDetailComponent;
 import com.github.juan1393.heroe.app.di.module.ComicDetailModule;
-import com.github.juan1393.heroe.presentation.base.BasePresenter;
 import com.github.juan1393.heroe.presentation.ComicDetailPresenter;
+import com.github.juan1393.heroe.presentation.base.BasePresenter;
 import com.github.juan1393.heroe.ui.activity.base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
@@ -41,6 +42,8 @@ public class ComicDetailActivity extends BaseActivity {
     TextView comicDetailReleaseDate;
     @BindView(R.id.comic_detail_price)
     TextView comicDetailPrice;
+    @BindView(R.id.comic_detail_scroll)
+    NestedScrollView comicDetailScroll;
 
     @Override
     public void setupInjection(AppComponent appComponent) {

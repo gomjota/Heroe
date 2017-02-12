@@ -16,7 +16,7 @@ public abstract class BasePresenter<T extends View> extends Presenter<T> {
     }
 
     public void onCreate() {
-
+        onViewEnabled();
     }
 
     public void onResume() {
@@ -27,7 +27,7 @@ public abstract class BasePresenter<T extends View> extends Presenter<T> {
     }
 
     public void onDestroy() {
-
+        onViewNotExists();
     }
 }
 
