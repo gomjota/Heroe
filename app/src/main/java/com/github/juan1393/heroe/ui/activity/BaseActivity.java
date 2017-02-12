@@ -30,6 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View {
         presenter = getPresenter();
         presenter.setView(this);
         presenter.onCreate();
+        presenter.onViewEnabled();
     }
 
     private void initView(int layoutReference) {

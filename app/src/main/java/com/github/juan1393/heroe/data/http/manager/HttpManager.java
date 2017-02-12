@@ -16,17 +16,17 @@ public class HttpManager {
 
     public static <R> Response<R> execute(HttpBaseRequest<R> httpBaseRequest)
             throws NetworkConnectionException, NetworkServiceException {
-        retrofit2.Response<R> remoteResponse;
+        retrofit2.Response<R> httpResponse;
         try {
-            remoteResponse = httpBaseRequest.getCall().execute();
+            httpResponse = httpBaseRequest.getCall().execute();
         } catch (ConnectException | UnknownHostException e) {
             throw new NetworkConnectionException();
         } catch (Exception e) {
             throw new NetworkServiceException();
         }
 
-        if (remoteResponse != null && remoteResponse.isSuccessful()) {
-            return new Response<>(remoteResponse.body());
+        if (httpResponse != null && httpResponse.isSuccessful()) {
+            return new Response<>(httpResponse.body());
         }
 
         throw new NetworkServiceException();

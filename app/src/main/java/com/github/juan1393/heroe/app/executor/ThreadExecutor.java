@@ -33,7 +33,7 @@ public class ThreadExecutor implements UseCaseExecutor {
     @Override
     public void run(final BaseUseCase baseUseCase) {
         if (baseUseCase == null) {
-            throw new IllegalArgumentException("Interactor must not be null");
+            throw new IllegalArgumentException("Use case must not be null");
         }
 
         threadPoolExecutor.submit(new Runnable() {

@@ -24,6 +24,10 @@ public class HttpGetCharacterComicsRequest
     @Override
     public Response<HttpGetCharacterComicsResponse> run() throws NetworkConnectionException,
             NetworkServiceException {
+/*
+        params.put("format", "comic");
+        params.put("formatType", "comic");
+        params.put("limit", 50);*/
 
         Call<HttpGetCharacterComicsResponse> call = service.characterComics(
                 request.getCharacterId(), params);

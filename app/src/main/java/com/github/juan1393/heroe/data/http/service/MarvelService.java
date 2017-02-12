@@ -18,7 +18,7 @@ import retrofit2.http.QueryMap;
 
 public interface MarvelService {
 
-    @GET("/v1/public/characters/{characterId}/comics")
+    @GET("v1/public/characters/{characterId}/comics")
     Call<HttpGetCharacterComicsResponse> characterComics(@Path("characterId") int characterId,
                                                          @QueryMap Map<String, Object> params);
 

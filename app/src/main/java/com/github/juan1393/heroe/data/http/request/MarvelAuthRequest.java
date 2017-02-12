@@ -23,8 +23,8 @@ public abstract class MarvelAuthRequest<T> extends MarvelRequest<T> {
 
     private void addAuthParams() {
         String md5Digest = SecurityUtil.md5(currentTimestamp + PRIVATE_API_KEY + PUBLIC_API_KEY);
-        params.put("apiKey", PUBLIC_API_KEY);
-        params.put("ts", currentTimestamp);
+        params.put("apikey", PUBLIC_API_KEY);
+        params.put("ts", String.valueOf(currentTimestamp));
         params.put("hash", md5Digest);
     }
 }

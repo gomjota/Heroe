@@ -9,10 +9,16 @@ import com.github.juan1393.heroe.ui.View;
 public class Presenter<T extends View> {
 
     protected T view;
-    protected boolean viewEnabled;
 
     public void setView(T view) {
         this.view = view;
+    }
+
+    public void onViewEnabled() {
+    }
+
+    public boolean isViewEnabled() {
+        return view != null;
     }
 }
 
