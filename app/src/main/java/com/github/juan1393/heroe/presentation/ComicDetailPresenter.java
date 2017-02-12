@@ -3,6 +3,7 @@ package com.github.juan1393.heroe.presentation;
 import android.content.Intent;
 
 import com.github.juan1393.heroe.app.model.Comic;
+import com.github.juan1393.heroe.presentation.base.BasePresenter;
 import com.github.juan1393.heroe.ui.activity.ComicDetailActivity;
 import com.github.juan1393.heroe.ui.activity.displayModel.ComicDetailDisplayModel;
 

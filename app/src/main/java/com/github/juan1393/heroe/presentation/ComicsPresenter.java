@@ -4,6 +4,7 @@ import com.github.juan1393.heroe.app.model.Comic;
 import com.github.juan1393.heroe.domain.request.GetCharacterComicsRequest;
 import com.github.juan1393.heroe.domain.response.GetCharacterComicsResponse;
 import com.github.juan1393.heroe.domain.useCase.GetCharacterComicsUseCase;
+import com.github.juan1393.heroe.presentation.base.BasePresenter;
 import com.github.juan1393.heroe.ui.activity.ComicsActivity;
 import com.github.juan1393.heroe.ui.adapter.displayModel.ComicsDisplayModel;
 

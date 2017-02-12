@@ -1,4 +1,4 @@
-package com.github.juan1393.heroe.presentation;
+package com.github.juan1393.heroe.presentation.base;
 
 import com.github.juan1393.heroe.app.navigator.Navigator;
 import com.github.juan1393.heroe.ui.View;

@@ -10,8 +10,9 @@ import com.github.juan1393.heroe.R;
 import com.github.juan1393.heroe.app.di.component.AppComponent;
 import com.github.juan1393.heroe.app.di.component.DaggerComicDetailComponent;
 import com.github.juan1393.heroe.app.di.module.ComicDetailModule;
-import com.github.juan1393.heroe.presentation.BasePresenter;
+import com.github.juan1393.heroe.presentation.base.BasePresenter;
 import com.github.juan1393.heroe.presentation.ComicDetailPresenter;
+import com.github.juan1393.heroe.ui.activity.base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;

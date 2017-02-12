@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.github.juan1393.heroe.app.model.Comic;
 import com.github.juan1393.heroe.presentation.ComicDetailPresenter;
-import com.github.juan1393.heroe.ui.activity.BaseActivity;
+import com.github.juan1393.heroe.ui.activity.base.BaseActivity;
 import com.github.juan1393.heroe.ui.activity.ComicDetailActivity;
 
 /**

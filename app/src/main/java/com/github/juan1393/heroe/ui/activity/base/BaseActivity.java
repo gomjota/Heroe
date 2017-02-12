@@ -1,4 +1,4 @@
-package com.github.juan1393.heroe.ui.activity;
+package com.github.juan1393.heroe.ui.activity.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.juan1393.heroe.Heroe;
 import com.github.juan1393.heroe.app.navigator.Navigator;
-import com.github.juan1393.heroe.presentation.BasePresenter;
+import com.github.juan1393.heroe.presentation.base.BasePresenter;
 import com.github.juan1393.heroe.ui.View;
 
 import javax.inject.Inject;
