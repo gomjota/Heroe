@@ -6,6 +6,7 @@ import com.github.juan1393.heroe.Heroe;
 import com.github.juan1393.heroe.app.di.module.AppModule;
 import com.github.juan1393.heroe.app.executor.MainThread;
 import com.github.juan1393.heroe.app.executor.UseCaseExecutor;
+import com.github.juan1393.heroe.app.navigator.Navigator;
 import com.github.juan1393.heroe.data.http.HttpDataSource;
 import com.github.juan1393.heroe.domain.repository.ComicRepository;
 
@@ -31,4 +32,6 @@ public interface AppComponent {
     HttpDataSource httpDataSource();
 
     ComicRepository comicRepository();
+
+    Navigator navigator();
 }

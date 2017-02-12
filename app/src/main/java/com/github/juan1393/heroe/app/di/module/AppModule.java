@@ -6,6 +6,7 @@ import com.github.juan1393.heroe.app.executor.MainThread;
 import com.github.juan1393.heroe.app.executor.MainThreadImpl;
 import com.github.juan1393.heroe.app.executor.ThreadExecutor;
 import com.github.juan1393.heroe.app.executor.UseCaseExecutor;
+import com.github.juan1393.heroe.app.navigator.Navigator;
 import com.github.juan1393.heroe.data.http.HttpDataSource;
 import com.github.juan1393.heroe.domain.repository.ComicRepository;
 
@@ -54,5 +55,11 @@ public class AppModule {
     @Singleton
     HttpDataSource provideHttpDataSource() {
         return new HttpDataSource();
+    }
+
+    @Provides
+    @Singleton
+    Navigator provideNavigator() {
+        return new Navigator();
     }
 }

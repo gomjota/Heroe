@@ -1,5 +1,6 @@
 package com.github.juan1393.heroe.app.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by Juan Gómez on 11/2/17.
  */
 
-public class Comic {
+public class Comic implements Serializable {
 
     private int id;
     private String title;

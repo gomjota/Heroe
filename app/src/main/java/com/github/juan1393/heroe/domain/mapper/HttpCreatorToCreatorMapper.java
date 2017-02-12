@@ -1,5 +1,7 @@
 package com.github.juan1393.heroe.domain.mapper;
 
+import android.util.Log;
+
 import com.github.juan1393.heroe.app.model.Creator;
 import com.github.juan1393.heroe.data.http.model.HttpCreator;
 import com.github.juan1393.heroe.domain.mapper.exception.InfoNotAvailableException;
@@ -10,14 +12,16 @@ import com.github.juan1393.heroe.domain.mapper.exception.InfoNotAvailableExcepti
 
 public class HttpCreatorToCreatorMapper implements Mapper<HttpCreator, Creator> {
 
+    private final String TAG = "HttpCreatorMapper";
+
     @Override
     public Creator map(HttpCreator input) {
         Creator creator = new Creator();
         try {
             creator.setName(getName(input));
-            creator.setName(getRole(input));
+            creator.setRole(getRole(input));
         } catch (InfoNotAvailableException e) {
-            //TODO
+            Log.d(TAG, "Info is not available");
         }
         return creator;
     }

@@ -1,5 +1,7 @@
 package com.github.juan1393.heroe.domain.mapper;
 
+import android.util.Log;
+
 import com.github.juan1393.heroe.app.model.Character;
 import com.github.juan1393.heroe.data.http.model.HttpCharacter;
 import com.github.juan1393.heroe.data.http.model.HttpCharacters;
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class HttpCharactersToCharacterListMapper implements Mapper<HttpCharacters, List<Character>> {
 
+    private final String TAG = "HttpCharactersMapper";
     private HttpCharacterToCharacterMapper httpCharacterToCharacterMapper;
 
     public HttpCharactersToCharacterListMapper() {
@@ -26,7 +29,7 @@ public class HttpCharactersToCharacterListMapper implements Mapper<HttpCharacter
         try {
             creators = getCharacters(input);
         } catch (InfoNotAvailableException e) {
-            //TODO
+            Log.d(TAG, "Info is not available");
         }
 
         return creators;

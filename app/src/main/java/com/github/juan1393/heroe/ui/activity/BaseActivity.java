@@ -6,8 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.juan1393.heroe.Heroe;
+import com.github.juan1393.heroe.app.navigator.Navigator;
 import com.github.juan1393.heroe.presentation.BasePresenter;
 import com.github.juan1393.heroe.ui.View;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -17,6 +20,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements View {
+
+    @Inject
+    Navigator navigator;
 
     private android.view.View view;
     private BasePresenter presenter;
@@ -28,8 +34,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View {
         setupInjection(Heroe.getInstance().getAppComponent());
         int layoutId = getLayoutId();
         initView(layoutId);
+        navigator.setCurrentActivity(this);
 
         presenter = getPresenter();
+        presenter.setNavigator(navigator);
         presenter.setView(this);
         presenter.onCreate();
         presenter.onViewEnabled();

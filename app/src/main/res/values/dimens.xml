@@ -3,7 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="item_comic_height">200dp</dimen>
-    <dimen name="item_comic_width">150dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="item_comic_height">220dp</dimen>
+    <dimen name="item_comic_width">170dp</dimen>
+    <dimen name="comic_detail_image">300dp</dimen>
+    <dimen name="progresswheel_defaul_size">50dp</dimen>
 </resources>

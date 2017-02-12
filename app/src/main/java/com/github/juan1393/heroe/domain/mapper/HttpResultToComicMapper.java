@@ -1,5 +1,7 @@
 package com.github.juan1393.heroe.domain.mapper;
 
+import android.util.Log;
+
 import com.github.juan1393.heroe.app.model.Character;
 import com.github.juan1393.heroe.app.model.Comic;
 import com.github.juan1393.heroe.app.model.Creator;
@@ -19,6 +21,7 @@ import java.util.List;
 
 public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
 
+    private final String TAG = "HttpResultMapper";
     private HttpCreatorsToCreatorListMapper httpCreatorsToCreatorListMapper;
     private HttpCharactersToCharacterListMapper httpCharactersToCharacterListMapper;
 
@@ -43,28 +46,28 @@ public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
             comic.setCreators(getCreators(input));
             comic.setCharacters(getCharacters(input));
         } catch (InfoNotAvailableException e) {
-            //TODO
+            Log.d(TAG, "Info is not available");
         }
 
         return comic;
     }
 
     private int getId(HttpResult input) throws InfoNotAvailableException {
-        if(input.getId() > 0) {
+        if (input.getId() > 0) {
             return input.getId();
         }
         throw new InfoNotAvailableException();
     }
 
     private String getTitle(HttpResult input) throws InfoNotAvailableException {
-        if(input.getTitle() != null) {
+        if (input.getTitle() != null) {
             return input.getTitle();
         }
         throw new InfoNotAvailableException();
     }
 
     private String getDescription(HttpResult input) throws InfoNotAvailableException {
-        if(input.getDescription() != null) {
+        if (input.getDescription() != null) {
             return input.getDescription();
         }
         throw new InfoNotAvailableException();
@@ -75,7 +78,7 @@ public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
     }
 
     private Date getReleaseDate(HttpResult input) throws InfoNotAvailableException {
-        if(input.getPrices() != null) {
+        if (input.getPrices() != null) {
             for (HttpDate httpDate : input.getDates()) {
                 if (httpDate.getType().equals("onsaleDate")) {
                     return httpDate.getDate();
@@ -86,7 +89,7 @@ public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
     }
 
     private float getPrintPrice(HttpResult input) throws InfoNotAvailableException {
-        if(input.getPrices() != null) {
+        if (input.getPrices() != null) {
             for (HttpPrice httpPrice : input.getPrices()) {
                 if (httpPrice.getType().equals("printPrice")) {
                     return httpPrice.getPrice();
@@ -97,16 +100,16 @@ public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
     }
 
     private String getThumbnailUrl(HttpResult input) throws InfoNotAvailableException {
-        if(input.getThumbnail() != null) {
+        if (input.getThumbnail() != null) {
             return input.getThumbnail().getPath() + "." + input.getThumbnail().getExtension();
         }
         throw new InfoNotAvailableException();
     }
 
     private List<String> getImagesUrl(HttpResult input) throws InfoNotAvailableException {
-        if(input.getImages() != null) {
+        if (input.getImages() != null) {
             List<String> imagesUrl = new ArrayList<>();
-            for(HttpImage httpImage : input.getImages()) {
+            for (HttpImage httpImage : input.getImages()) {
                 String url = httpImage.getPath() + "." + httpImage.getExtension();
                 imagesUrl.add(url);
             }
@@ -114,16 +117,16 @@ public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
         }
         throw new InfoNotAvailableException();
     }
-    
+
     private List<Creator> getCreators(HttpResult input) throws InfoNotAvailableException {
-        if(input.getCreators() != null) {
+        if (input.getCreators() != null) {
             return httpCreatorsToCreatorListMapper.map(input.getCreators());
         }
         throw new InfoNotAvailableException();
     }
 
     private List<Character> getCharacters(HttpResult input) throws InfoNotAvailableException {
-        if(input.getCharacters() != null) {
+        if (input.getCharacters() != null) {
             return httpCharactersToCharacterListMapper.map(input.getCharacters());
         }
         throw new InfoNotAvailableException();

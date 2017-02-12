@@ -10,7 +10,6 @@ import dagger.Component;
  * Created by Juan Gómez on 12/2/17.
  */
 
-
 @PerView
 @Component(modules = ComicsModule.class, dependencies = AppComponent.class)
 public interface ComicsComponent {

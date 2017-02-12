@@ -1,5 +1,7 @@
 package com.github.juan1393.heroe.domain.mapper;
 
+import android.util.Log;
+
 import com.github.juan1393.heroe.app.model.Creator;
 import com.github.juan1393.heroe.data.http.model.HttpCreator;
 import com.github.juan1393.heroe.data.http.model.HttpCreators;
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class HttpCreatorsToCreatorListMapper implements Mapper<HttpCreators, List<Creator>> {
 
+    private final String TAG = "HttpCreatorsMapper";
     private HttpCreatorToCreatorMapper httpCreatorToCreatorMapper;
 
     public HttpCreatorsToCreatorListMapper() {
@@ -26,7 +29,7 @@ public class HttpCreatorsToCreatorListMapper implements Mapper<HttpCreators, Lis
         try {
             creators = getCreators(input);
         } catch (InfoNotAvailableException e) {
-            //TODO
+            Log.d(TAG, "Info is not available");
         }
 
         return creators;

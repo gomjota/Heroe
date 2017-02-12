@@ -7,6 +7,7 @@ import com.github.juan1393.heroe.domain.useCase.GetCharacterComicsUseCase;
 import com.github.juan1393.heroe.ui.activity.ComicsActivity;
 import com.github.juan1393.heroe.ui.adapter.displayModel.ComicsDisplayModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,6 +21,7 @@ public class ComicsPresenter extends BasePresenter<ComicsActivity> implements Ge
     private final int CHARACTER_CAPTAIN_AMERICA_ID = 1009220;
 
     private GetCharacterComicsUseCase getCharacterComicsUseCase;
+    private List<Comic> comics;
 
     @Inject
     public ComicsPresenter(GetCharacterComicsUseCase getCharacterComicsUseCase) {
@@ -34,25 +36,38 @@ public class ComicsPresenter extends BasePresenter<ComicsActivity> implements Ge
     }
 
     private void executeGetCharacterComicsUseCase() {
+        comics = new ArrayList<>();
         GetCharacterComicsRequest request = new GetCharacterComicsRequest(CHARACTER_CAPTAIN_AMERICA_ID);
         getCharacterComicsUseCase.execute(request, this);
     }
 
     @Override
     public void onCharacterComicsRetrieved(List<Comic> comics) {
+        this.comics = comics;
         if (isViewEnabled()) {
             ComicsDisplayModel comicsDisplayModel = new ComicsDisplayModel(comics);
+            view.hideProgressWheel();
             view.setDataInComicList(comicsDisplayModel);
         }
     }
 
     @Override
     public void onCharacterComicsNotFound() {
-        //TODO: Show toast
+        if (isViewEnabled()) {
+            view.hideProgressWheel();
+            view.showCharacterComicsNotFoundError();
+        }
     }
 
     @Override
     public void onNetworkConnectionError() {
-        //TODO: Show toast
+        if (isViewEnabled()) {
+            view.hideProgressWheel();
+            view.showNetworkConnectionError();
+        }
+    }
+
+    public void onItemOnListClicked(int position) {
+        navigator.goToComicDetailActivity(comics.get(position));
     }
 }

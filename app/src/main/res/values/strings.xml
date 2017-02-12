@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Heroe</string>
-    <string name="title_activity_comic_detail">ComicDetailActivity</string>
+
+    <string name="error_character_comics_not_found">Ups! Captain America is busy right now. Please, try later</string>
+    <string name="error_network_connection">Ups! It seems you have lost your Internet connection. Please, try later</string>
+
+    <string name="comic_detail_characters">Characters</string>
+    <string name="comic_detail_creators">Creators</string>
+    <string name="comic_detail_release_date">Release date</string>
+    <string name="comic_detail_price">Price</string>
 </resources>

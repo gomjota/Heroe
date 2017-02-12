@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Juan Gómez on 12/2/17.
@@ -22,10 +23,13 @@ import butterknife.ButterKnife;
 public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder> {
 
     private Context context;
+    private RecyclerViewItemClicked recyclerViewItemClicked;
     private ComicsDisplayModel comics;
 
-    public ComicsAdapter(Context context, ComicsDisplayModel comics) {
+    public ComicsAdapter(Context context, RecyclerViewItemClicked recyclerViewItemClicked,
+                         ComicsDisplayModel comics) {
         this.context = context;
+        this.recyclerViewItemClicked = recyclerViewItemClicked;
         this.comics = comics;
     }
 
@@ -33,7 +37,7 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_comic, parent, false);
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView, recyclerViewItemClicked);
     }
 
     @Override
@@ -59,9 +63,17 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
         @BindView(R.id.comic_title)
         TextView title;
 
-        ViewHolder(View view) {
+        private RecyclerViewItemClicked recyclerViewItemClicked;
+
+        ViewHolder(View view, RecyclerViewItemClicked recyclerViewItemClicked) {
             super(view);
+            this.recyclerViewItemClicked = recyclerViewItemClicked;
             ButterKnife.bind(this, view);
+        }
+
+        @OnClick(R.id.item_comic)
+        public void onClick() {
+            recyclerViewItemClicked.onItemClicked(getAdapterPosition());
         }
     }
 }

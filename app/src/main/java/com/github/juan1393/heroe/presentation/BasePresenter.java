@@ -1,5 +1,6 @@
 package com.github.juan1393.heroe.presentation;
 
+import com.github.juan1393.heroe.app.navigator.Navigator;
 import com.github.juan1393.heroe.ui.View;
 
 /**
@@ -7,6 +8,12 @@ import com.github.juan1393.heroe.ui.View;
  */
 
 public abstract class BasePresenter<T extends View> extends Presenter<T> {
+
+    protected Navigator navigator;
+
+    public void setNavigator(Navigator navigator) {
+        this.navigator = navigator;
+    }
 
     public void onCreate() {
 
