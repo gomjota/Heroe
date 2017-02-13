@@ -11,8 +11,6 @@ import com.github.juan1393.heroe.domain.response.Response;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 /**
  * Created by Juan Gómez on 11/2/17.
  */
@@ -21,7 +19,6 @@ public class ComicRepository extends BaseRepository {
 
     private HttpComicsResponseToComicsMapper httpComicsResponseToComicsMapper;
 
-    @Inject
     public ComicRepository(HttpDataSource httpDataSource) {
         super(httpDataSource);
         httpComicsResponseToComicsMapper = new HttpComicsResponseToComicsMapper();

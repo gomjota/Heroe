@@ -10,15 +10,13 @@ import com.github.juan1393.heroe.domain.mapper.exception.InfoNotAvailableExcepti
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * Created by Juan Gómez on 11/2/17.
  */
 
 public class HttpComicsResponseToComicsMapper implements Mapper<HttpGetCharacterComicsResponse, List<Comic>> {
 
-    private final String TAG = "HttpComicResponseMapper";
+    private static final String TAG = "HttpComicResponseMapper";
     private HttpResultToComicMapper httpResultToComicMapper;
 
     public HttpComicsResponseToComicsMapper() {

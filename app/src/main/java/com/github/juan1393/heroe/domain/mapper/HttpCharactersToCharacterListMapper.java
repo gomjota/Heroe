@@ -16,7 +16,7 @@ import java.util.List;
 
 public class HttpCharactersToCharacterListMapper implements Mapper<HttpCharacters, List<Character>> {
 
-    private final String TAG = "HttpCharactersMapper";
+    private static final String TAG = "HttpCharactersMapper";
     private HttpCharacterToCharacterMapper httpCharacterToCharacterMapper;
 
     public HttpCharactersToCharacterListMapper() {

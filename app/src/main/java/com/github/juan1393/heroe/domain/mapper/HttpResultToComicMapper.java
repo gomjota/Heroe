@@ -21,7 +21,7 @@ import java.util.List;
 
 public class HttpResultToComicMapper implements Mapper<HttpResult, Comic> {
 
-    private final String TAG = "HttpResultMapper";
+    private static final String TAG = "HttpResultMapper";
     private HttpCreatorsToCreatorListMapper httpCreatorsToCreatorListMapper;
     private HttpCharactersToCharacterListMapper httpCharactersToCharacterListMapper;
 

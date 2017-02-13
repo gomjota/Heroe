@@ -28,6 +28,7 @@ import static org.mockito.Mockito.verify;
 public class GetCharacterComicsUseCaseTest {
 
     private final int MAX_TIMEOUT_MILLISECONDS = 15000;
+    private final int MAX_COMICS = 20;
     private final int CHARACTER_ID_OK = 1009220;
     private final int CHARACTER_ID_FAIL = 0;
 
@@ -46,20 +47,20 @@ public class GetCharacterComicsUseCaseTest {
 
     @Test
     public void shouldReturnAListOfComics() {
-        GetCharacterComicsRequest request = createRequest(CHARACTER_ID_OK);
+        GetCharacterComicsRequest request = createRequest(CHARACTER_ID_OK, MAX_COMICS);
         useCase.execute(request, response);
         verify(response, timeout(MAX_TIMEOUT_MILLISECONDS)).onCharacterComicsRetrieved(anyListOf(Comic.class));
     }
 
     @Test
     public void shouldNotFoundAnyComic() {
-        GetCharacterComicsRequest request = createRequest(CHARACTER_ID_FAIL);
+        GetCharacterComicsRequest request = createRequest(CHARACTER_ID_FAIL, MAX_COMICS);
         useCase.execute(request, response);
         verify(response, timeout(MAX_TIMEOUT_MILLISECONDS)).onCharacterComicsNotFound();
     }
 
-    private GetCharacterComicsRequest createRequest(int characterId) {
-        return new GetCharacterComicsRequest(characterId);
+    private GetCharacterComicsRequest createRequest(int characterId, int maxComics) {
+        return new GetCharacterComicsRequest(characterId, maxComics);
     }
 
     private ComicRepository createRepository() {

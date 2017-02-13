@@ -12,7 +12,7 @@ import com.github.juan1393.heroe.domain.mapper.exception.InfoNotAvailableExcepti
 
 public class HttpCreatorToCreatorMapper implements Mapper<HttpCreator, Creator> {
 
-    private final String TAG = "HttpCreatorMapper";
+    private static final String TAG = "HttpCreatorMapper";
 
     @Override
     public Creator map(HttpCreator input) {

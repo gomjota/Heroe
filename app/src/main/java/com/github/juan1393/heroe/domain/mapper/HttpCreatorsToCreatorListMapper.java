@@ -16,7 +16,7 @@ import java.util.List;
 
 public class HttpCreatorsToCreatorListMapper implements Mapper<HttpCreators, List<Creator>> {
 
-    private final String TAG = "HttpCreatorsMapper";
+    private static final String TAG = "HttpCreatorsMapper";
     private HttpCreatorToCreatorMapper httpCreatorToCreatorMapper;
 
     public HttpCreatorsToCreatorListMapper() {

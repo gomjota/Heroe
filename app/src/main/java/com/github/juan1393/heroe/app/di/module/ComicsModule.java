@@ -1,6 +1,9 @@
 package com.github.juan1393.heroe.app.di.module;
 
 import com.github.juan1393.heroe.app.di.scope.PerView;
+import com.github.juan1393.heroe.app.executor.MainThread;
+import com.github.juan1393.heroe.app.executor.UseCaseExecutor;
+import com.github.juan1393.heroe.domain.repository.ComicRepository;
 import com.github.juan1393.heroe.domain.useCase.GetCharacterComicsUseCase;
 import com.github.juan1393.heroe.presentation.ComicsPresenter;
 import com.github.juan1393.heroe.ui.activity.ComicsActivity;
@@ -25,6 +28,13 @@ public class ComicsModule {
     @PerView
     ComicsActivity provideActivity() {
         return comicsActivity;
+    }
+
+    @Provides
+    @PerView
+    GetCharacterComicsUseCase provideGetCharacterComicsUseCase(ComicRepository comicRepository,
+                                                               UseCaseExecutor executor, MainThread mainThread) {
+        return new GetCharacterComicsUseCase(comicRepository, executor, mainThread);
     }
 
     @Provides

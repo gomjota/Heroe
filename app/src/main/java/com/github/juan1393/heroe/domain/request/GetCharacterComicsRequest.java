@@ -7,12 +7,18 @@ package com.github.juan1393.heroe.domain.request;
 public class GetCharacterComicsRequest extends BaseRequest {
 
     private int characterId;
+    private int maxComics;
 
-    public GetCharacterComicsRequest(int characterId) {
+    public GetCharacterComicsRequest(int characterId, int maxComics) {
         this.characterId = characterId;
+        this.maxComics = maxComics;
     }
 
     public int getCharacterId() {
         return characterId;
+    }
+
+    public int getMaxComics() {
+        return maxComics;
     }
 }

@@ -12,8 +12,6 @@ import com.github.juan1393.heroe.domain.response.Response;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 /**
  * Created by Juan Gómez on 11/2/17.
  */
@@ -22,7 +20,6 @@ public class GetCharacterComicsUseCase extends BaseUseCase<GetCharacterComicsReq
 
     private ComicRepository comicRepository;
 
-    @Inject
     public GetCharacterComicsUseCase(ComicRepository comicRepository,
                                      UseCaseExecutor executor, MainThread mainThread) {
         super(executor, mainThread);

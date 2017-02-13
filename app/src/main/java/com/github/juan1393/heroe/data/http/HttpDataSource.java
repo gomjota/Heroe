@@ -8,17 +8,11 @@ import com.github.juan1393.heroe.data.http.response.HttpGetCharacterComicsRespon
 import com.github.juan1393.heroe.domain.request.GetCharacterComicsRequest;
 import com.github.juan1393.heroe.domain.response.Response;
 
-import javax.inject.Inject;
-
 /**
  * Created by Juan Gómez on 11/2/17.
  */
 
 public class HttpDataSource {
-
-    @Inject
-    public HttpDataSource() {
-    }
 
     public Response<HttpGetCharacterComicsResponse> getCharacterComics(GetCharacterComicsRequest request)
             throws NetworkConnectionException, CharacterComicsNotFoundException {

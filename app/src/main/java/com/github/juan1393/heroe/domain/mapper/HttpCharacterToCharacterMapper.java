@@ -12,7 +12,7 @@ import com.github.juan1393.heroe.domain.mapper.exception.InfoNotAvailableExcepti
 
 public class HttpCharacterToCharacterMapper implements Mapper<HttpCharacter, Character> {
 
-    private final String TAG = "HttpCharacterMapper";
+    private static final String TAG = "HttpCharacterMapper";
 
     @Override
     public Character map(HttpCharacter input) {

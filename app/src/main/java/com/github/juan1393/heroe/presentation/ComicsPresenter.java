@@ -11,8 +11,6 @@ import com.github.juan1393.heroe.ui.adapter.displayModel.ComicsDisplayModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 /**
  * Created by Juan Gómez on 12/2/17.
  */
@@ -20,11 +18,11 @@ import javax.inject.Inject;
 public class ComicsPresenter extends BasePresenter<ComicsActivity> implements GetCharacterComicsResponse {
 
     private final int CHARACTER_CAPTAIN_AMERICA_ID = 1009220;
+    private final int MAX_COMICS = 20;
 
     private GetCharacterComicsUseCase getCharacterComicsUseCase;
     private List<Comic> comics;
 
-    @Inject
     public ComicsPresenter(GetCharacterComicsUseCase getCharacterComicsUseCase) {
         this.getCharacterComicsUseCase = getCharacterComicsUseCase;
     }
@@ -38,7 +36,8 @@ public class ComicsPresenter extends BasePresenter<ComicsActivity> implements Ge
 
     private void executeGetCharacterComicsUseCase() {
         comics = new ArrayList<>();
-        GetCharacterComicsRequest request = new GetCharacterComicsRequest(CHARACTER_CAPTAIN_AMERICA_ID);
+        GetCharacterComicsRequest request = new GetCharacterComicsRequest(CHARACTER_CAPTAIN_AMERICA_ID,
+                MAX_COMICS);
         getCharacterComicsUseCase.execute(request, this);
     }
 
