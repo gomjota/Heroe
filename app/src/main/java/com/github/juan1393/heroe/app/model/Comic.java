@@ -100,4 +100,13 @@ public class Comic implements Serializable {
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
     }
+
+    public boolean hasCompleteInfo() {
+        if(id > 0 && title != null && description != null && releaseDate != null && thumbnailUrl != null
+                && imagesUrl != null && !imagesUrl.isEmpty() && creators != null && !creators.isEmpty()
+                && characters != null && !characters.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
 }

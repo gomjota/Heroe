@@ -68,6 +68,11 @@ public class ComicsPresenter extends BasePresenter<ComicsActivity> implements Ge
     }
 
     public void onItemOnListClicked(int position) {
-        navigator.goToComicDetailActivity(comics.get(position));
+        Comic comicSelected = comics.get(position);
+        if(comicSelected.hasCompleteInfo()) {
+            navigator.goToComicDetailActivity(comics.get(position));
+        }else{
+            view.showComicHasNotAllInfoError();
+        }
     }
 }

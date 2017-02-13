@@ -70,11 +70,17 @@ public class ComicsActivity extends BaseActivity implements RecyclerViewItemClic
     }
 
     public void showCharacterComicsNotFoundError() {
-        Toast.makeText(this, getString(R.string.error_character_comics_not_found), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.error_character_comics_not_found),
+                Toast.LENGTH_SHORT).show();
     }
 
     public void showNetworkConnectionError() {
-        Toast.makeText(this, getString(R.string.error_network_connection), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.error_network_connection),
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public void showComicHasNotAllInfoError() {
+        Toast.makeText(this, getString(R.string.error_comic_not_valid), Toast.LENGTH_SHORT).show();
     }
 
     @Override
