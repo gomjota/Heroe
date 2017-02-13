@@ -14,3 +14,10 @@ This app is modeled using the Clean Architecture approach. To reach the main goa
  * **Repository**: Picks different data sources depending on certain conditions. Right now
  the app has just a Http data source, but it is ready to add others like persistence or memory.
  * **Navigator**: Allows to navigate through different UI elements.
+
+ The app uses Dagger 2 for dependency injection
+
+ Screenshots
+ --------------
+ ![Heroe image](/art/comics_screenshot.jpg?raw=true)
+ ![Heroe image](/art/comic_detail_screenshot.jpg?raw=true)
