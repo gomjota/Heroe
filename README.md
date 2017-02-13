@@ -22,7 +22,7 @@ For security reasons, private and public key of Marvel API are not provided. Ple
 In order to have a look to the app, you can download the [APK](./art/juangomez_app_marvel.apk)
 
 ## Test
-The app has instrumentation tests and unit test
+The app has instrumentation tests and unit tests
 
 ## Screenshots
  ![Heroe image](/art/comics_screenshot.jpg?raw=true)
