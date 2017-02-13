@@ -30,8 +30,8 @@ android {
 
         all {
             buildConfigField STRING, MARVEL_API_URL, "\"http://gateway.marvel.com/\""
-            buildConfigField STRING, MARVEL_PUBLIC_API_KEY, "\"6a7ed890b4b941a925202a5630d5b162\""
-            buildConfigField STRING, MARVEL_PRIVATE_API_KEY, "\"0f1d0fdf46a0bf32f962b0b9997233c0395cdf8e\""
+            buildConfigField STRING, MARVEL_PUBLIC_API_KEY, "\"\""
+            buildConfigField STRING, MARVEL_PRIVATE_API_KEY, "\"\""
         }
     }
 }
